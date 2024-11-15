@@ -1,142 +1,91 @@
-
-
 const NextScreen = () => {
-    const handleNext = () => {
-        // Navigate to sign-up screen
-        window.location.href = "/signup";
-    };
+  const handleNext = () => {
+    // Navigate to sign-up screen
+    window.location.href = "/signup";
+  };
 
-    return (
-      <div style={styles.container}>
-        <div style={styles.overlay}>
-          <h1 style={styles.text}>Welcome to 👋🏻</h1>
-          <h2 style={styles.text2}>Potea</h2>
-          <h3 style={styles.text3}>Discover a wide selection of stylish and functional pots for your plants.<br />
-            Find the perfect match for your home and garden to enhance your greenery.</h3>
-          <button style={styles.button} onClick={handleNext}>Next</button>
+  return (
+    <div style={styles.container}>
+      <div style={styles.overlay}>
+        <div style={styles.content}>
+          <h1 style={styles.heading}>Welcome to 👋🏻</h1>
+          <h2 style={styles.brand}>Potea</h2>
+          <p style={styles.description}>
+            Discover a wide selection of stylish and functional pots for your plants.
+
+          </p>
+          <button style={styles.button} onClick={handleNext}>
+            Next
+          </button>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 const styles = {
-    container: {
-      backgroundImage: 'url(../assets/pot2.jpg)',
-      backgroundSize: 'contain',
-      backgroundPosition: 'center',
-      height: '100vh',
-      width: '100vw',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    overlay: {
-      backgroundColor: 'rgba(0, 0, 0, 0.9)',
-      width: '100%',
-      height: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'column',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      padding: '0 20px', // Add padding for small screens
-    },
-    text: {
-      color: 'white',
-      fontSize: '2rem',
-      fontWeight: 'bold',
-      textAlign: 'center',
-      marginBottom: '20px', // Space between text elements
-    },
-    text2: {
-      color: '#007958',
-      fontSize: '4rem',
-      fontWeight: 'bold',
-      textAlign: 'center',
-      marginBottom: '30px',
-    },
-    text3: {
-      color: 'white',
-      marginTop: '30px',
-      fontSize: '1.3rem',
-      textAlign: 'center',
-      maxWidth: '80%',
-      lineHeight: '1.6',
-      fontFamily: '"Roboto", sans-serif', // Use the new font
-    },
-    button: {
-      backgroundColor: '#007958',
-      color: 'white',
-      padding: '20px 30px',
-      fontSize: '1.2rem',
-      border: 'none',
-      borderRadius: '20px',
-      cursor: 'pointer',
-      marginTop: '40px',
-      width:'15%',
-      transition: 'all 0.3s ease',
-      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
-    },
-    // Add responsiveness
-    '@media screen and (max-width: 1200px)': {
-      container: {
-        padding: '10px',
-      },
-      text: {
-        fontSize: '1.8rem',
-      },
-      text2: {
-        fontSize: '3rem',
-        marginBottom: '20px',
-      },
-      text3: {
-        fontSize: '1.3rem',
-      },
-      button: {
-        padding: '12px 25px',
-        fontSize: '1rem',
-      },
-    },
-    '@media screen and (max-width: 768px)': {
-      container: {
-        padding: '5px',
-      },
-      text: {
-        fontSize: '1.5rem',
-      },
-      text2: {
-        fontSize: '2.5rem',
-        marginBottom: '15px',
-      },
-      text3: {
-        fontSize: '1.2rem',
-      },
-      button: {
-        padding: '10px 20px',
-        fontSize: '0.9rem',
-      },
-    },
-    '@media screen and (max-width: 480px)': {
-      container: {
-        padding: '5px',
-      },
-      text: {
-        fontSize: '1.2rem',
-      },
-      text2: {
-        fontSize: '2rem',
-        marginBottom: '10px',
-      },
-      text3: {
-        fontSize: '1rem',
-      },
-      button: {
-        padding: '8px 15px',
-        fontSize: '0.8rem',
-      },
-    },
+  container: {
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundImage: 'url(../assets/pot2.jpg)',
+    backgroundSize: "contain",
+    backgroundPosition: "center", // Center the image
+    position: "relative", // Allow for an overlay
+  },
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(0, 0, 0, 0.7)", // Dark overlay for better text readability
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
+    backgroundColor: "rgba(0, 0, 0, 0.8)", // Semi-transparent black box
+    padding: "30px 40px",
+    borderRadius: "10px",
+    textAlign: "center",
+    boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.5)", // Soft shadow for depth
+    maxWidth: "400px",
+    width: "100%",
+  },
+  heading: {
+    fontSize: "2rem",
+    color: "white",
+    marginBottom: "15px",
+  },
+  brand: {
+    fontSize: "2.5rem",
+    color: "#007958", // Accent green
+    fontWeight: "bold",
+    marginBottom: "20px",
+  },
+  description: {
+    fontSize: "1rem",
+    color: "white",
+    lineHeight: "1.6",
+    marginBottom: "30px",
+    FontFace:"'Serif' , 'Georgia'",
+  },
+  button: {
+    backgroundColor: "#007958",
+    color: "white",
+    padding: "12px 20px",
+    fontSize: "1rem",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    transition: "background-color 0.3s",
+    width: "100%",
+  },
+  buttonHover: {
+    backgroundColor: "#005a3e",
+  },
 };
 
 export default NextScreen;

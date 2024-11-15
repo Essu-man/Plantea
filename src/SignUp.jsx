@@ -68,21 +68,21 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "black",
   },
   formContainer: {
-    backgroundColor: "white",
+    backgroundColor: "black",
     padding: "30px 40px",
     borderRadius: "10px",
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
     width: "100%",
     maxWidth: "400px",
     textAlign: "center",
+    border: "1px solid #444", // Slight outline for the container
   },
   heading: {
     marginBottom: "20px",
     fontSize: "2rem",
-    color: "#007958",
+    color: "#007958", // Green color for heading
   },
   form: {
     display: "flex",
@@ -92,8 +92,10 @@ const styles = {
   input: {
     padding: "10px",
     fontSize: "1rem",
-    border: "1px solid #ccc",
+    border: "1px solid #444",
     borderRadius: "5px",
+    backgroundColor: "#222",
+    color: "white",
   },
   button: {
     backgroundColor: "#007958",
@@ -106,13 +108,10 @@ const styles = {
     marginTop: "10px",
     transition: "background-color 0.3s",
   },
-  buttonHover: {
-    backgroundColor: "#005a3e",
-  },
   footerText: {
     marginTop: "15px",
     fontSize: "0.9rem",
-    color: "#666",
+    color: "#bbb", // Lighter gray for text
   },
   link: {
     color: "#007958",
