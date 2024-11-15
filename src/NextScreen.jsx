@@ -10,17 +10,17 @@ const NextScreen = () => {
 
   const styles = {
     container: {
-      backgroundImage: 'url(/path-to-your-image.jpg)', // Replace with the path to your image
-      backgroundSize: 'cover', // Ensures the image covers the entire screen
-      backgroundPosition: 'center', // Centers the image
-      height: '100vh', // Full viewport height
-      display: 'flex', // Enables flexbox
-      justifyContent: 'center', // Center content horizontally
-      alignItems: 'center', // Center content vertically
+      backgroundImage: 'url(../assets/pots.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     overlay: {
-      backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent black overlay
-      width: '100%', // Full width of the container
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      width: '100%',
       height: '100%', // Full height of the container
       display: 'flex', // Enables flexbox
       justifyContent: 'center', // Center content horizontally
