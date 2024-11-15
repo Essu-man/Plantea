@@ -10,7 +10,7 @@ const NextScreen = () => {
 
   const styles = {
     container: {
-      backgroundImage: 'url(../assets/pots.jpg)',
+      backgroundImage: 'url(../assets/pot2.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       height: '100vh',
