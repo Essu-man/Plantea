@@ -3,7 +3,7 @@
 const App = () => {
   return (
     <div style={styles.container}>
-      <img src="../src/assets/leaf-green-icon.webp" alt="Logo" style={styles.logo} />
+      <img src="../assets/leaf-green-icon.webp" alt="Logo" style={styles.logo} />
     </div>
   );
 };
