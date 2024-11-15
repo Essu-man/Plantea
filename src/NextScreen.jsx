@@ -11,21 +11,26 @@ const NextScreen = () => {
   const styles = {
     container: {
       backgroundImage: 'url(../assets/pot2.jpg)',
-      backgroundSize: 'cover',
+      backgroundSize: 'contain',
       backgroundPosition: 'center',
       height: '100vh',
+      width:'100vw',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
     },
     overlay: {
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
       width: '100%',
       height: '100%', // Full height of the container
       display: 'flex', // Enables flexbox
       justifyContent: 'center', // Center content horizontally
       alignItems: 'center', // Center content vertically
       flexDirection: 'column', // Stack children vertically
+      position: 'absolute',
+      top:0,
+      left:0,
+
     },
     text: {
       color: 'white', // Text color
