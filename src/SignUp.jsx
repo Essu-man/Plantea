@@ -69,6 +69,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "black",
+    width: "100%",
   },
   formContainer: {
     backgroundColor: "black",

@@ -32,7 +32,7 @@ const styles = {
     backgroundImage: 'url(../assets/pot2.jpg)',
     backgroundSize: "contain",
     backgroundPosition: "center", // Center the image
-    position: "relative", // Allow for an overlay
+    position: "relative",
   },
   overlay: {
     position: "absolute",
@@ -70,7 +70,7 @@ const styles = {
     color: "white",
     lineHeight: "1.6",
     marginBottom: "30px",
-    FontFace:"'Serif' , 'Georgia'",
+    fontFamily: "'Open Sans', serif",
   },
   button: {
     backgroundColor: "#007958",
