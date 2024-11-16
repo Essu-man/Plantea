@@ -1,2 +1,2 @@
 # Plantea
-Plants
+Plants and pots
