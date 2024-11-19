@@ -8,8 +8,8 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-      navigate('/next'); // Replace '/next' with your actual next screen route
-    }, 10000); // 10 seconds
+      navigate('/next');
+    }, 10000);
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount
   }, [navigate]);
