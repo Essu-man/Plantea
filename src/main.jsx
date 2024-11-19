@@ -15,10 +15,11 @@ const Root = () => (
       <Route path="/SignUp" element={<SignUp />} />
       <Route path= "/Login" element={<Login />}/>
       <Route path= "/Home" element={<Home />}/>
+
     </Routes>
   </BrowserRouter>
 );
 
 // Use ReactDOM.createRoot
-const root = ReactDOM.createRoot(document.getElementById('root')); // Ensure 'root' matches your HTML
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Root />);
