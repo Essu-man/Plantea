@@ -1,0 +1,9 @@
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .buyButton:hover {
+    background-color: #005a3d;
+    transition: background-color 0.3s ease;
+  }

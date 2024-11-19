@@ -23,7 +23,7 @@ export const addEquipment = async (equipmentData) => {
     const docRef = await addDoc(collection(db, "equipment"), equipmentData);
     console.log("Equipment added with ID: ", docRef.id);
   } catch (e) {
-    console.error("Error adding equipment: ", e);
+    console.error("Error adding Pots: ", e);
   }
 };
 

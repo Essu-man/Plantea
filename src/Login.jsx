@@ -1,16 +1,17 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth } from "./Firebase/FirebaseConfig.js";
 
-const SignUp = () => {
+const Login = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
     email: "",
     password: "",
   });
-
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,33 +24,31 @@ const SignUp = () => {
     setSuccess("");
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(
+      const userCredential = await signInWithEmailAndPassword(
         auth,
         formData.email,
         formData.password
       );
-      console.log("User registered:", userCredential.user);
-      setSuccess("Account created successfully!");
+      console.log("Logged in user:", userCredential.user);
+      setSuccess("Login successful!");
+      navigate("/Home");
     } catch (err) {
-      console.error("Error during sign up:", err.message);
-      setError(err.message);
+      if (err.code === "auth/user-not-found") {
+        setError("No user found with this email. Please sign up.");
+      } else if (err.code === "auth/wrong-password") {
+        setError("Incorrect password. Please try again.");
+      } else {
+        setError("An error occurred. Please try again.");
+      }
+      console.error(err.message);
     }
   };
 
   return (
     <div style={styles.container}>
       <div style={styles.formContainer}>
-        <h2 style={styles.heading}>Sign Up</h2>
+        <h2 style={styles.heading}>Log In</h2>
         <form onSubmit={handleSubmit} style={styles.form}>
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            value={formData.fullName}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
           <input
             type="email"
             name="email"
@@ -68,14 +67,17 @@ const SignUp = () => {
             style={styles.input}
             required
           />
+          {error && <p style={styles.error}>{error}</p>}
+          {success && <p style={styles.success}>{success}</p>}
           <button type="submit" style={styles.button}>
-            Sign Up
+            Log In
           </button>
         </form>
-        {error && <p style={styles.error}>{error}</p>}
-        {success && <p style={styles.success}>{success}</p>}
         <p style={styles.footerText}>
-          Already have an account? <a href="/login" style={styles.link}>Log In</a>
+          Don’t have an account?{" "}
+          <a href="/signup" style={styles.link}>
+            Sign Up
+          </a>
         </p>
       </div>
     </div>
@@ -141,12 +143,12 @@ const styles = {
   },
   error: {
     color: "red",
-    marginTop: "10px",
+    fontSize: "0.9rem",
   },
   success: {
     color: "green",
-    marginTop: "10px",
+    fontSize: "0.9rem",
   },
 };
 
-export default SignUp;
+export default Login;
