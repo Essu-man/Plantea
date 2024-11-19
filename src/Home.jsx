@@ -34,7 +34,7 @@ const Home = () => {
           {pots.map((pot) => (
             <div key={pot.id} style={styles.card}>
               <img
-                src={pot.imageUrl || "/placeholder.jpg"}
+                src={pot.imageUrl || "../public/assets/pot2.jpg"}
                 alt={pot.name}
                 style={styles.image}
               />
