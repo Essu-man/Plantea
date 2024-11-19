@@ -11,7 +11,7 @@ const App = () => {
       navigate('/next');
     }, 10000);
 
-    return () => clearTimeout(timer); // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   return (
@@ -28,17 +28,17 @@ const App = () => {
 
 const styles = {
   container: {
-    width: '100vw', // Full width of the viewport
-    height: '100vh', // Full height of the viewport
-    backgroundColor: 'black', // Black background
-    display: 'flex', // Flexbox for centering
-    flexDirection: 'column', // Stack items vertically
-    justifyContent: 'center', // Center content vertically
-    alignItems: 'center', // Center content horizontally
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: 'black',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logo: {
-    width: '150px', // Adjust logo size
-    height: 'auto', // Maintain aspect ratio
+    width: '150px',
+    height: 'auto',
   },
   spinner: {
     position: 'absolute',

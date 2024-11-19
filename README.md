@@ -1,2 +1,2 @@
-# Plantea
-Finding Plants and pots
+# Potea
+Finding Pots for plants

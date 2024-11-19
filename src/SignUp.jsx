@@ -78,12 +78,12 @@ const styles = {
     width: "100%",
     maxWidth: "400px",
     textAlign: "center",
-    border: "1px solid #444", // Slight outline for the container
+    border: "1px solid #444",
   },
   heading: {
     marginBottom: "20px",
     fontSize: "2rem",
-    color: "#007958", // Green color for heading
+    color: "#007958",
   },
   form: {
     display: "flex",
