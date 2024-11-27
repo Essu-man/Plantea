@@ -1,48 +1,57 @@
+/* Ensure the body takes up the full height of the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 .home-container {
   background-color: #000;
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  height: 100%; /* Ensure this container can take full height */
+  overflow-y: auto; /* Enable scrolling when content overflows */
 }
 
 .section-title {
   font-size: 26px;
   font-weight: bold;
-  color: #fff; /* White color for the section title */
+  color: #fff;
   margin-bottom: 20px;
-  text-transform: uppercase; /* Optional for added style */
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Slightly larger minimum column width */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  padding-bottom: 20px; /* Add padding at the bottom for better spacing */
 }
 
 .product-card {
-  border: 1px solid #444; /* Slightly lighter border for better contrast */
-  border-radius: 12px; /* More rounded corners */
+  border: 1px solid #444;
+  border-radius: 12px;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow for more depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoother transition for hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .product-image {
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: transform 0.4s ease; /* Smooth image zoom effect */
+  transition: transform 0.4s ease;
 }
 
 .product-image:hover {
-  transform: scale(1.1); /* Zoom effect on image hover */
+  transform: scale(1.1);
 }
 
 .product-info {
@@ -52,25 +61,25 @@
 .product-name {
   font-size: 20px;
   font-weight: bold;
-  color: #fff; /* White color for better visibility on black background */
+  color: #fff;
   margin: 10px 0;
 }
 
 .product-description {
   font-size: 14px;
-  color: #aaa; /* Lighter gray for the description */
+  color: #aaa;
   margin: 5px 0;
 }
 
 .product-price {
   font-size: 18px;
-  color: #e1e1e1; /* Slightly lighter gray to make the price stand out */
+  color: #e1e1e1;
   font-weight: bold;
   margin: 10px 0;
 }
 
 .add-to-bag {
-  background-color: #ff6347; /* A vibrant color for the button */
+  background-color: #ff6347;
   color: #fff;
   padding: 12px 20px;
   border: none;
@@ -81,6 +90,6 @@
 }
 
 .add-to-bag:hover {
-  background-color: #e04e29; /* Darker shade of the button on hover */
-  transform: translateY(-3px); /* Slight lift effect on hover */
+  background-color: #e04e29;
+  transform: translateY(-3px);
 }

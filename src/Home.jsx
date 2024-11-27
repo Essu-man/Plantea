@@ -33,12 +33,40 @@ const products = [
     description: "Black and orange",
     imageSrc: image4,
   },
+  {
+    id: 5,
+    name: "Zip Tote Basket",
+    price: "$140",
+    description: "White and black",
+    imageSrc: image1,
+  },
+  {
+    id: 6,
+    name: "Zip High Wall Tote",
+    price: "$150",
+    description: "White and blue",
+    imageSrc: image2,
+  },
+  {
+    id: 7,
+    name: "Halfsize Tote",
+    price: "$210",
+    description: "Clay",
+    imageSrc: image3,
+  },
+  {
+    id: 8,
+    name: "High Wall Tote",
+    price: "$210",
+    description: "Black and orange",
+    imageSrc: image4,
+  },
 ];
 
 export default function Home() {
   return (
     <div className="home-container">
-      <h2 className="section-title">Customers also bought</h2>
+      <h2 className="section-title">Find your desired pots here</h2>
       <div className="products-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">
