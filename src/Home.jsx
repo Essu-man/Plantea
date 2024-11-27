@@ -1,59 +1,86 @@
+
+
 const products = [
   {
     id: 1,
-    name: 'Earthen Bottle',
-    href: '#',
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    name: "Zip Tote Basket",
+    description: "White and black",
+    price: "$140",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    imageAlt: "Zip Tote Basket in white and black color.",
   },
   {
     id: 2,
-    name: 'Nomad Tumbler',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+    name: "Zip High Wall Tote",
+    description: "White and blue",
+    price: "$150",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+    imageAlt: "Zip High Wall Tote in white and blue color.",
   },
   {
     id: 3,
-    name: 'Focus Paper Refill',
-    href: '#',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    name: "Halfsize Tote",
+    description: "Clay",
+    price: "$210",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+    imageAlt: "Halfsize Tote in clay color.",
   },
   {
     id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    name: "High Wall Tote",
+    description: "Black and orange",
+    price: "$210",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
+    imageAlt: "High Wall Tote in black and orange color.",
   },
-  // More products...
-]
+];
 
-export default function Example() {
+export default function Home() {
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="sr-only">Products</h2>
+    <div className="bg-gray-50 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          Customers also bought
+        </h2>
 
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product) => (
-            <a key={product.id} href={product.href} className="group">
-              <img
-                alt={product.imageAlt}
-                src={product.imageSrc}
-                className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"
-              />
-              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-            </a>
+            <div
+              key={product.id}
+              className="bg-white rounded-lg shadow overflow-hidden group"
+            >
+              {/* Product Image */}
+              <div className="relative">
+                <img
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="w-full h-64 object-cover group-hover:opacity-90"
+                />
+                <div className="absolute bottom-0 right-0 bg-gray-800 bg-opacity-75 text-white px-2 py-1 text-sm">
+                  {product.price}
+                </div>
+              </div>
+
+              {/* Product Info */}
+              <div className="p-4">
+                <h3 className="text-sm text-gray-700 font-semibold">
+                  {product.name}
+                </h3>
+                <p className="text-sm text-gray-500">{product.description}</p>
+                <button className="mt-4 w-full bg-gray-100 text-gray-900 py-2 px-4 rounded-md hover:bg-gray-200">
+                  Add to bag
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
