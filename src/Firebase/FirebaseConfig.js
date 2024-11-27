@@ -1,7 +1,6 @@
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
-import { addDoc, collection, getDocs, getFirestore } from 'firebase/firestore';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
@@ -13,28 +12,22 @@ const firebaseConfig = {
   appId: "1:697918269526:web:524353801b0acd89f633f7"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-export const addEquipment = async (equipmentData) => {
+export const getPots = async () => {
   try {
-    const docRef = await addDoc(collection(db, "equipment"), equipmentData);
-    console.log("Equipment added with ID: ", docRef.id);
+    const querySnapshot = await getDocs(collection(db, "pots"));
+    const potsList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    console.log("Fetched pots: ", potsList); // Add logging here
+    return potsList;
   } catch (e) {
-    console.error("Error adding Pots: ", e);
+    console.error("Error fetching pots: ", e);
   }
 };
 
-export const getEquipment = async () => {
-  try {
-    const querySnapshot = await getDocs(collection(db, "equipment"));
-    const equipmentList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return equipmentList;
-  } catch (e) {
-    console.error("Error fetching equipment: ", e);
-  }
-};
-
+// Export the necessary Firebase objects for authentication and storage
 export { auth, db, storage };

@@ -1,138 +1,59 @@
-import { useEffect, useState } from "react";
-import { getEquipment } from "./Firebase/FirebaseConfig.js";
-import "./Home.css";
+const products = [
+  {
+    id: 1,
+    name: 'Earthen Bottle',
+    href: '#',
+    price: '$48',
+    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-01.jpg',
+    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+  },
+  {
+    id: 2,
+    name: 'Nomad Tumbler',
+    href: '#',
+    price: '$35',
+    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-02.jpg',
+    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+  },
+  {
+    id: 3,
+    name: 'Focus Paper Refill',
+    href: '#',
+    price: '$89',
+    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-03.jpg',
+    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+  },
+  {
+    id: 4,
+    name: 'Machined Mechanical Pencil',
+    href: '#',
+    price: '$35',
+    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-04-image-card-04.jpg',
+    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+  },
+  // More products...
+]
 
-const Home = () => {
-  const [pots, setPots] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchPots = async () => {
-      try {
-        const potsData = await getEquipment(); // Fetch pots data
-        setPots(potsData);
-      } catch (error) {
-        console.error("Error fetching pots: ", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPots();
-  }, []);
-
+export default function Example() {
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <h1 style={styles.heading}>🌿 Plantea Pots</h1>
-        <p style={styles.subtitle}>Find the perfect pot for your plants!</p>
-      </header>
-      {loading ? (
-        <div style={styles.loader}>Loading pots...</div>
-      ) : pots.length > 0 ? (
-        <div style={styles.grid}>
-          {pots.map((pot) => (
-            <div key={pot.id} style={styles.card}>
+    <div className="bg-white">
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <h2 className="sr-only">Products</h2>
+
+        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          {products.map((product) => (
+            <a key={product.id} href={product.href} className="group">
               <img
-                src={pot.imageUrl || "../public/assets/pot2.jpg"}
-                alt={pot.name}
-                style={styles.image}
+                alt={product.imageAlt}
+                src={product.imageSrc}
+                className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"
               />
-              <h3 style={styles.potName}>{pot.name}</h3>
-              <p style={styles.price}>{pot.price} GHS</p>
-              <button style={styles.buyButton}>Buy Now</button>
-            </div>
+              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+              <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+            </a>
           ))}
         </div>
-      ) : (
-        <div style={styles.noData}>
-          <p>No pots available at the moment. Check back later!</p>
-        </div>
-      )}
+      </div>
     </div>
-  );
-};
-
-const styles = {
-  container: {
-    backgroundColor: "#f4f4f4",
-    minHeight: "100vh",
-    padding: "20px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  header: {
-    textAlign: "center",
-    marginBottom: "20px",
-  },
-  heading: {
-    fontSize: "2.5rem",
-    color: "#007958",
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: "1.2rem",
-    color: "#444",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-    gap: "20px",
-    width: "100%",
-    maxWidth: "1200px",
-  },
-  card: {
-    backgroundColor: "#fff",
-    borderRadius: "10px",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-    padding: "20px",
-    textAlign: "center",
-    transition: "transform 0.3s",
-    cursor: "pointer",
-  },
-  cardHover: {
-    transform: "scale(1.05)",
-  },
-  image: {
-    width: "100%",
-    borderRadius: "10px",
-    marginBottom: "15px",
-  },
-  potName: {
-    fontSize: "1.2rem",
-    color: "#007958",
-    marginBottom: "10px",
-  },
-  price: {
-    fontSize: "1rem",
-    color: "#444",
-    marginBottom: "15px",
-  },
-  buyButton: {
-    padding: "10px 20px",
-    backgroundColor: "#007958",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    fontSize: "1rem",
-    cursor: "pointer",
-    transition: "background-color 0.3s",
-  },
-  buyButtonHover: {
-    backgroundColor: "#005a3d",
-  },
-  loader: {
-    fontSize: "1.2rem",
-    color: "#444",
-    marginTop: "20px",
-  },
-  noData: {
-    fontSize: "1rem",
-    color: "#777",
-    textAlign: "center",
-    marginTop: "20px",
-  },
-};
-
-export default Home;
+  )
+}
