@@ -4,12 +4,12 @@ import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
- // apiKey: "AIzaSyCd3_4Q7QFjbOMTPmaz4y1aznh2Shr4H9Y",
-  //authDomain: "plantea-1d582.firebaseapp.com",
-  //projectId: "plantea-1d582",
-  //storageBucket: "plantea-1d582.firebasestorage.app",
-  //messagingSenderId: "697918269526",
-  //appId: "1:697918269526:web:524353801b0acd89f633f7"
+  apiKey: "AIzaSyCd3_4Q7QFjbOMTPmaz4y1aznh2Shr4H9Y",
+  authDomain: "plantea-1d582.firebaseapp.com",
+  projectId: "plantea-1d582",
+  storageBucket: "plantea-1d582.firebasestorage.app",
+  messagingSenderId: "697918269526",
+  appId: "1:697918269526:web:524353801b0acd89f633f7"
 };
 
 // Initialize Firebase
