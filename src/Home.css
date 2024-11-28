@@ -17,8 +17,9 @@ html, body {
   font-size: 26px;
   font-weight: bold;
   color: #fff;
-  margin-bottom: 20px;
-  text-transform: uppercase;
+  margin-bottom: 50px;
+  justify-content: center;
+  text-transform: Camelcase;
   letter-spacing: 1px;
 }
 
