@@ -125,7 +125,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <h2 className="section-title">Find Your Desired Pots Here</h2>
+      <h2 className="section-title">Find Your Desired Plant Pots Here</h2>
 
       {/* Search Bar */}
       <div className="search-bar">
