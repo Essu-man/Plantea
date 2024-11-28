@@ -7,16 +7,16 @@ import "./Home.css";
 const products = [
   {
     id: 1,
-    name: "Zip Tote Basket",
+    name: "Ceramic ",
     price: "$140",
-    description: "White and black",
+    description: " A porous material that dries more evenly than plastic",
     imageSrc: image1,
   },
   {
     id: 2,
-    name: "Zip High Wall Tote",
+    name: "Terracotta",
     price: "$150",
-    description: "White and blue",
+    description: " A clay planter that dries more evenly than plastic",
     imageSrc: image2,
   },
   {
