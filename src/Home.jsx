@@ -74,11 +74,11 @@ const products = [
 
 export default function Home() {
   const [cart, setCart] = useState([]);
-  const [wishlist, setWishlist] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(4); // Show 4 products per page
+  const [productsPerPage] = useState(4);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Search functionality
   const filteredProducts = products.filter((product) =>
@@ -95,36 +95,45 @@ export default function Home() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // Wishlist functionality
-  const addToWishlist = (product) => {
-    setWishlist((prev) => {
-      if (prev.find((item) => item.id === product.id)) {
-        alert(`${product.name} is already in your wishlist!`);
-        return prev;
+  // Add to cart functionality
+  const handleAddToCart = (product) => {
+    setCart((prev) => {
+      const exists = prev.find((item) => item.id === product.id);
+      if (exists) {
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
       }
-      alert(`${product.name} added to your wishlist!`);
-      return [...prev, product];
+      return [...prev, { ...product, quantity: 1 }];
     });
+    alert(`${product.name} has been added to your cart!`);
   };
 
-  // Add to bag
-  const handleAddToBag = (product) => {
-    setCart((prev) => [...prev, product]);
-    alert(`${product.name} has been added to your bag!`);
-  };
-
-  // Open product details modal
-  const openProductModal = (product) => {
-    setSelectedProduct(product);
-  };
-
-  // Close modal
-  const closeProductModal = () => {
-    setSelectedProduct(null);
-  };
+  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
 
   return (
     <div className="home-container">
+      {/* Sidebar */}
+      <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+        <h3>My Cart</h3>
+        {cart.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          <ul>
+            {cart.map((item) => (
+              <li key={item.id}>
+                {item.name} - {item.quantity} x {item.price}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {/* Sidebar Toggle Button */}
+      <button className="sidebar-toggle" onClick={toggleSidebar}>
+        {sidebarOpen ? "Close Cart" : "Open Cart"}
+      </button>
+
       <h2 className="section-title">Find Your Desired Plant Pots Here</h2>
 
       {/* Search Bar */}
@@ -145,29 +154,19 @@ export default function Home() {
               src={product.imageSrc}
               alt={product.name}
               className="product-image"
-              onClick={() => openProductModal(product)} // Open quick view modal
+              onClick={() => setSelectedProduct(product)}
             />
             <div className="product-info">
               <h3 className="product-name">{product.name}</h3>
               <p className="product-description">{product.description}</p>
               <p className="product-price">{product.price}</p>
-              <p className="product-rating">
-                Rating: {product.rating} ★
-              </p>
-              <div className="button-group">
-                <button
-                  className="add-to-bag"
-                  onClick={() => handleAddToBag(product)}
-                >
-                  Add to Bag
-                </button>
-                <button
-                  className="wishlist-button"
-                  onClick={() => addToWishlist(product)}
-                >
-                  ❤ Wishlist
-                </button>
-              </div>
+              <p className="product-rating">Rating: {product.rating} ★</p>
+              <button
+                className="add-to-cart"
+                onClick={() => handleAddToCart(product)}
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         ))}
@@ -192,7 +191,10 @@ export default function Home() {
       {selectedProduct && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close-button" onClick={closeProductModal}>
+            <span
+              className="close-button"
+              onClick={() => setSelectedProduct(null)}
+            >
               &times;
             </span>
             <img
@@ -207,10 +209,10 @@ export default function Home() {
               Rating: {selectedProduct.rating} ★
             </p>
             <button
-              className="add-to-bag"
-              onClick={() => handleAddToBag(selectedProduct)}
+              className="add-to-cart"
+              onClick={() => handleAddToCart(selectedProduct)}
             >
-              Add to Bag
+              Add to Cart
             </button>
           </div>
         </div>
